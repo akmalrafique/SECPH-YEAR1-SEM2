@@ -15,7 +15,7 @@
 //  18/4/26_    7:09            7:40          31
 
 // Video link:
-//   _________
+//   https://drive.google.com/file/d/103ObAJMG7Mv_sRGkIrB20dxEY7ASxzw5/view?usp=sharing
 
 
 #include <iostream>
@@ -119,7 +119,7 @@ int main()
 		 << endl;
 
 	cout << "Subject Code : "<<mySubject.getCode() << endl;
-	cout << "Subject Name : "<<mySubject.getGrade() << endl;
+	cout << "Subject Name : "<<mySubject.getName() << endl;
     int creditHour = mySubject.getCode().back()- '0';
 
 	cout << "Credit Hour  : "<<creditHour << endl;
