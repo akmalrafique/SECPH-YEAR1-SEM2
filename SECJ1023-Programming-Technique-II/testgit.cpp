@@ -19,7 +19,7 @@ public:
     void display() {
         cout << "ID: " << id 
              << " | Name: " << name 
-             << " | Marks: " << marks << endl;
+             << " | Marks : " << marks << endl;
     }
 
     int getID() { return id; }
