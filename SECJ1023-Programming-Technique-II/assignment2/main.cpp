@@ -83,7 +83,11 @@ int main()
 	cout << "GPA          : " << ttp/ttc<<setprecision(3) << endl;
 
 	cout << endl;
-	cout << "LOWEST SUBJECT : " << endl;
+	Subject lowsub = subjects[0];
+	for(int i=1;i<count;i++){
+		lowsub = lower(lowsub,subjects[i]);
+	};
+	cout << "LOWEST SUBJECT : " << lowsub.print() << endl;
 	cout << endl;
 
 	system("pause");
