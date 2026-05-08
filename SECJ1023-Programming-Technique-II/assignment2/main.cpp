@@ -36,13 +36,21 @@ public:
 	Subject();
 	int credit() const;
 	string grade() const;
-	double point(string) const;
+	double point() const;
 	void print() const;
+	friend int readUserInput(Subject subjects[]);
+
 };
 
 int main()
 {
+	int num;
+	cout << "how many subject do you want to enter";
+	cin>>num;
+	for(int i=0;i<num;i++){
 
+	}
+	Subject subjects[]
 	cout << endl
 		 << endl
 		 << "THE RESULT"
@@ -118,7 +126,8 @@ int readUserInput(Subject subjects[])
 Subject lower(Subject a, Subject b)
 {
 }
-	double Subject::point(string grade) const{
+	double Subject::point() const{
+		string grade = grade();
 		if(grade== "A+")
 		return 4.0;
 		if(grade=="A")
@@ -145,5 +154,19 @@ Subject lower(Subject a, Subject b)
 		return 0.67;
 		if(grade=="E")
 		return 0.0;
+	}
+	void Subject:: print( ) const{
+		int cred = credit();
+		double point = point();
+		string grade = grade();
+		double tt = cred*point;
+		cout << left << setw(15) << code;
+		cout << left << setw(30) << name;
+		cout << left << setw(10) << cred;
+		cout << left << setw(10) << score;
+		cout << left << setw(10) << grade;
+		cout << left << setw(10) << point;
+		cout << left << setw(10) << tt;
+		cout << endl;
 	}
 
