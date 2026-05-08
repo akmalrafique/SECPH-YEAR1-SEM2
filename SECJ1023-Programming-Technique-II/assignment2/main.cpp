@@ -43,7 +43,7 @@ public:
 
 
 };
-
+Subject lower(Subject a, Subject b);
 int main()
 {
 	double ttp = 0.0;
@@ -80,14 +80,15 @@ int main()
 	cout << endl;
 	cout << "TOTAL POINT  : " << ttp << endl;
 	cout << "TOTAL CREDIT : " << ttc <<endl;
-	cout << "GPA          : " << ttp/ttc<<setprecision(3) << endl;
+	cout << "GPA          : " << ttp/ttc << endl;
 
 	cout << endl;
 	Subject lowsub = subjects[0];
 	for(int i=1;i<count;i++){
 		lowsub = lower(lowsub,subjects[i]);
 	};
-	cout << "LOWEST SUBJECT : " << lowsub.print() << endl;
+	cout << "LOWEST SUBJECT : " << endl;
+	lowsub.print();
 	cout << endl;
 
 	system("pause");
@@ -161,45 +162,45 @@ Subject lower(Subject a, Subject b)
 	else return b;
 }
 	double Subject::point() const{
-		string grade = grade();
-		if(grade== "A+")
+		string g = grade();
+		if(g== "A+")
 		return 4.0;
-		if(grade=="A")
+		if(g=="A")
 		return 4.0;
-		if(grade=="A-")
+		if(g=="A-")
 		return 3.67;
-		if(grade=="B+")
+		if(g=="B+")
 		return 3.33;
-		if(grade=="B")
+		if(g=="B")
 		return 3.0;
-		if(grade=="B-")
+		if(g=="B-")
 		return 2.67;
-		if(grade=="C+")
+		if(g=="C+")
 		return 2.33;
-		if(grade=="C")
+		if(g=="C")
 		return 2.0;
-		if(grade=="C-")
+		if(g=="C-")
 		return 1.67;
-		if(grade=="D+")
+		if(g=="D+")
 		return 1.33;
-		if(grade=="D")
+		if(g=="D")
 		return 1.0;
-		if(grade=="D-")
+		if(g=="D-")
 		return 0.67;
-		if(grade=="E")
+		else
 		return 0.0;
 	}
 	void Subject:: print( ) const{
 		int cred = credit();
-		double point = point();
-		string grade = grade();
-		double tt = cred*point;
+		double p = point();
+		string g = grade();
+		double tt = cred*p;
 		cout << left << setw(15) << code;
 		cout << left << setw(30) << name;
 		cout << left << setw(10) << cred;
 		cout << left << setw(10) << score;
-		cout << left << setw(10) << grade;
-		cout << left << setw(10) << point;
+		cout << left << setw(10) << g;
+		cout << left << setw(10) << p;
 		cout << left << setw(10) << tt;
 		cout << endl;
 	}
