@@ -39,6 +39,8 @@ public:
 	double point() const;
 	void print() const;
 	friend int readUserInput(Subject subjects[]);
+	bool operator<(const Subject& lowsub)const;
+
 
 };
 
@@ -173,7 +175,9 @@ Subject lower(Subject a, Subject b)
 		cout << left << setw(10) << tt;
 		cout << endl;
 	}
-	bool operator<()
+	bool Subject::operator<(const Subject& lowsub)const{
+		return score<lowsub.score;
+	}
 
 
 
