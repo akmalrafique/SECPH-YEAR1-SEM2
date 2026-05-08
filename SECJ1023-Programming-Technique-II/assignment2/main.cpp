@@ -46,13 +46,11 @@ public:
 
 int main()
 {
-	int num;
-	cout << "how many subject do you want to enter";
-	cin>>num;
-	for(int i=0;i<num;i++){
+	Subject subjects[MAX_SUBJECT_COUNT];
+	readUserInput(subjects);
 
-	}
-	Subject subjects[]
+
+	
 	cout << endl
 		 << endl
 		 << "THE RESULT"
@@ -122,6 +120,23 @@ string Subject::grade() const
 // Define a regular function that read a list of subjects from user input
 int readUserInput(Subject subjects[])
 {
+	int num;
+	cout << "How many subjects do you want to enter? =>";
+	cin >>num;
+	if(num>MAX_SUBJECT_COUNT){
+		num=MAX_SUBJECT_COUNT;
+	}
+	for(int i=0;i<num;i++){
+		cout<<"Enter info for subject #"<<i+1<<endl;
+		cout<<"Subject code =>";
+		cin>>subjects[i].code;
+		cout<<"Subject name =>";
+		cin.ignore();
+		getline(cin,subjects[i].name);
+		cout<<"Subject score =>";
+		cin>>subjects[i].score;
+	};
+	return num;
 }
 
 // Define a regular function that determines the lower subject.
