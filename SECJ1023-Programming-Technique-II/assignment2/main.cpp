@@ -46,9 +46,11 @@ public:
 
 int main()
 {
+	double ttp = 0.0;
+	int ttc =0;
 	Subject subjects[MAX_SUBJECT_COUNT];
-	readUserInput(subjects);
-
+	int count = readUserInput(subjects);
+	
 
 	
 	cout << endl
@@ -68,10 +70,17 @@ int main()
 	cout << endl
 		 << endl;
 
+	for(int i=0;i<count;i++){
+		subjects[i].print();
+		ttp += (subjects[i].credit()*subjects[i].point());
+		ttc += subjects[i].credit();
+	}
+		
+
 	cout << endl;
-	cout << "TOTAL POINT  : " << endl;
-	cout << "TOTAL CREDIT : " << endl;
-	cout << "GPA          : " << setprecision(3) << endl;
+	cout << "TOTAL POINT  : " << ttp << endl;
+	cout << "TOTAL CREDIT : " << ttc <<endl;
+	cout << "GPA          : " << ttp/ttc<<setprecision(3) << endl;
 
 	cout << endl;
 	cout << "LOWEST SUBJECT : " << endl;
