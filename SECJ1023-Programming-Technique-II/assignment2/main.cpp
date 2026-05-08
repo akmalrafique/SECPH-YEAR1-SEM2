@@ -125,6 +125,10 @@ int readUserInput(Subject subjects[])
 // Define a regular function that determines the lower subject.
 Subject lower(Subject a, Subject b)
 {
+	if(a<b){
+		return a;
+	}
+	else return b;
 }
 	double Subject::point() const{
 		string grade = grade();
@@ -169,4 +173,7 @@ Subject lower(Subject a, Subject b)
 		cout << left << setw(10) << tt;
 		cout << endl;
 	}
+	bool operator<()
+
+
 
