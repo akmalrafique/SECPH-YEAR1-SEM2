@@ -36,7 +36,7 @@ public:
 	Subject();
 	int credit() const;
 	string grade() const;
-	double point() const;
+	double point(string) const;
 	void print() const;
 };
 
@@ -118,3 +118,32 @@ int readUserInput(Subject subjects[])
 Subject lower(Subject a, Subject b)
 {
 }
+	double Subject::point(string grade) const{
+		if(grade== "A+")
+		return 4.0;
+		if(grade=="A")
+		return 4.0;
+		if(grade=="A-")
+		return 3.67;
+		if(grade=="B+")
+		return 3.33;
+		if(grade=="B")
+		return 3.0;
+		if(grade=="B-")
+		return 2.67;
+		if(grade=="C+")
+		return 2.33;
+		if(grade=="C")
+		return 2.0;
+		if(grade=="C-")
+		return 1.67;
+		if(grade=="D+")
+		return 1.33;
+		if(grade=="D")
+		return 1.0;
+		if(grade=="D-")
+		return 0.67;
+		if(grade=="E")
+		return 0.0;
+	}
+
