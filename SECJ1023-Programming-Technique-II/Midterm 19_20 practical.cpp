@@ -1,5 +1,6 @@
 #include<iostream>
-
+#include<string>
+using namespace std;
 class Student{
     private:
     string name;
@@ -17,7 +18,7 @@ class Student{
         ccred=c;
         gpa=0.0;
         cred=0;
-        updateCGPA();
+        updateCGPA;
     }
     string getName()const{
         return name;
@@ -37,7 +38,8 @@ class Student{
     }
     void readInput(){
         cout<<"Name:";
-        cin>>name;
+        cin.ignore();
+        getline(cin,name);
         cout<<"Matric Number:";
         cin>>matric;
         cout<<"CGPA:";
@@ -53,14 +55,56 @@ class Student{
     bool operator==(const Student& right)const{
         return(this->getStatus()==right.getStatus());
     }
-    friend void dispInfo();
+    friend void dispInfo(const Student &temp);
+    friend ostream& operator<<(ostream& output,const Student& right);
 };
 
-void dispInfo(){
-    cout<<"Hello, "<<p1.name<<endl;
-    cout<<"You are in year "<<    <<"in "<<
+void dispInfo(const Student &temp){
+int year;
+string program;
+if(temp.matric.substr(1,2)=="16"){
+    year=4;
 }
-using namespace std;
+if(temp.matric.substr(1,2)=="17"){
+    year=3;
+}
+if(temp.matric.substr(1,2)=="18"){
+    year=2;
+}
+if(temp.matric.substr(1,2)=="19"){
+    year=1;
+}
+if(temp.matric.substr(3,4)=="CS"){
+    program="Computer Science";
+}
+if(temp.matric.substr(3,4)=="EC"){
+    program="Engineering Computing";
+}
+else
+program="Non Computing Program ";
+cout<<"You are in year "<<year<<"in "<<program<<endl;
+}
+ostream& operator<<(ostream& output,const Student& right){
+    output<<"Hello "<<right.name<<endl;
+    dispInfo(right);
+    output<<"Your matric number is "<<right.matric<<endl;
+    output<<"Your current CGPA is"<<right.cgpa<<endl;
+    output<<"Your status is "<<right.getStatus()<<endl;
+    if(right.cgpa>3.67){
+        output<<"CONGRATULATIONS. You are awarded DEANs LIST"<<endl;
+    }
+    return output;
+}
 int main(){
+    Student p1,p2("Hashim Abu","A17CS1234",4.0,18);
+    p1.readInput();
+    cout<<p1;
+    cout<<p2;
+    if(p1==p2){
+        cout<<"**Note: "<<p1.getName()<<"and"<<p2.getName()<<" have "<<p1.getStatus()<<endl;
+    }
+    else{
+        cout<<"**Note: "<<p1.getName()<<"and"<<p2.getName()<<" have different status."<<endl;
+    }
 
 }
