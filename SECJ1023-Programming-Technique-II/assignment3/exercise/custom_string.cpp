@@ -12,20 +12,20 @@
 
 /// Programming Technique II
 
-// Member 1's Name: _____________
-// Member 2's Name: _____________
+// Member 1's Name: AKMAL RAFIQUE BIN AHMAD RAPHAIE
+// Member 2's Name: Muhammad Najmi Shahmi Bin Mohd Latpi
 //
-// Section: ___
-// Member 1's Name: _____________    Location: ____________ (i.e. where are you currently located)
-// Member 2's Name: _____________    Location: ____________
+// Section: 2
+// Member 1's Name: AKMAL RAFIQUE BIN AHMAD RAPHAIE    Location: KTR K11 (i.e. where are you currently located)
+// Member 2's Name: Muhammad Najmi Shahmi Bin Mohd Latpi    Location: KTR K11 (i.e. where are you currently located)
 
 // Log the time(s) your pair programming sessions
 //  Date         Time (From)   To             Duration (in minutes)
-//  _________    ___________   ___________    ________
-//  _________    ___________   ___________    ________
+//  9/5/2026    5.58           6.23              25
+//  9/5/2026    5.58           6.23                
 
-// Video link:
-//   _________
+// Video link:  
+//   https://drive.google.com/drive/folders/1_408YcsvD0YHvzvb573KMVI5VFV5vBQw?usp=sharing
 
 
 #include <iostream>
@@ -51,25 +51,31 @@ void CustomString::setData(const string &_data) { data = _data; }
 
 void CustomString::pushFront(const string &s)
 {
+    data.insert(0,s);
 }
 
 void CustomString::pushBack(const string &s)
 {
+    data.append(s);
 }
 
 string CustomString::pop(int index, int count)
 {
-    return "";
+    string extracted = data.substr(index, count);
+    data.erase(index, count );
+    return extracted;
 }
 
 string CustomString::popFront(int count)
 {
-    return "";
+    return pop(0, count);
 }
 
 string CustomString::popBack(int count)
 {
-    return "";
+    int startIndex = data.length() - count;
+
+    return pop(startIndex, count);
 }
 
 //! Task 2: Complete the implementation of the following overloaded operators:
@@ -78,12 +84,20 @@ string CustomString::popBack(int count)
 
 CustomString CustomString::operator!() const
 {
-    return CustomString();
+    string reversed_data = "";
+    for(int i = data.length() -1 ;i>=0;i--){
+        reversed_data += data[i];
+    }
+    return CustomString(reversed_data);
 }
 
 CustomString CustomString::operator*(int count) const
 {
-    return CustomString();
+    string repeated_data = "";
+    for(int i =0; i < count; i++){
+        repeated_data += data;
+    }
+    return CustomString(repeated_data);
 }
 
 //! Task 3: Complete the implementation of the following conversion methods:
@@ -92,10 +106,15 @@ CustomString CustomString::operator*(int count) const
 
 double CustomString::toDouble() const
 {
-    return 0.0;
+    return stod(data);
 }
 
 CustomString CustomString::toUpper() const
 {
-    return CustomString();
+    string upper_data = data;
+
+    for (int i =0; i < upper_data.length(); i++){
+        upper_data[i] = toupper(upper_data[i]);
+    }
+    return CustomString(upper_data);
 }
