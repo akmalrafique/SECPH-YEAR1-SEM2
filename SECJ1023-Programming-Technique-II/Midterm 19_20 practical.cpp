@@ -18,7 +18,7 @@ class Student{
         ccred=c;
         gpa=0.0;
         cred=0;
-        updateCGPA;
+        updateCGPA();
     }
     string getName()const{
         return name;
@@ -33,8 +33,8 @@ class Student{
         else
         return "Good Status";
     }
-    void updateCGPA(double cg){
-        cgpa=((gpa*cred)+(cg*ccred))/(cred+ccred);
+    void updateCGPA(){
+        cgpa=((gpa*cred)+(cgpa*ccred))/(cred+ccred);
     }
     void readInput(){
         cout<<"Name:";
@@ -50,7 +50,7 @@ class Student{
         cin>>gpa;
         cout<<"Credit earned this semester:";
         cin>>cred;
-        updateCGPA(cgpa);
+        updateCGPA();
     }
     bool operator==(const Student& right)const{
         return(this->getStatus()==right.getStatus());
@@ -74,10 +74,10 @@ if(temp.matric.substr(1,2)=="18"){
 if(temp.matric.substr(1,2)=="19"){
     year=1;
 }
-if(temp.matric.substr(3,4)=="CS"){
+if(temp.matric.substr(3,2)=="CS"){
     program="Computer Science";
 }
-if(temp.matric.substr(3,4)=="EC"){
+else if(temp.matric.substr(3,2)=="EC"){
     program="Engineering Computing";
 }
 else
@@ -90,7 +90,7 @@ ostream& operator<<(ostream& output,const Student& right){
     output<<"Your matric number is "<<right.matric<<endl;
     output<<"Your current CGPA is"<<right.cgpa<<endl;
     output<<"Your status is "<<right.getStatus()<<endl;
-    if(right.cgpa>3.67){
+    if(right.cgpa>=3.67){
         output<<"CONGRATULATIONS. You are awarded DEANs LIST"<<endl;
     }
     return output;
