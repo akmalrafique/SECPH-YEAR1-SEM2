@@ -1,5 +1,6 @@
 #include<iostream>
 #include<string>
+#include <cstring>
 using namespace std;
 class Line{
     private:
@@ -13,6 +14,7 @@ class Line{
     void read();
     Line operator-(const Line& right)const;
     bool operator!=(const Line& right)const;
+    string toString();
 };
 void Line:: read(){
     cout<<"Enter the slope (m) and y-intercept of a line (c) =>";
@@ -31,6 +33,36 @@ bool Line:: operator!=(const Line& right)const{
         else{
             return false;
         }
+}
+string Line::toString(){
+    string equation="y=";
+    if(m==1){
+        equation+="x +";
+    }
+    else if(m==-1){
+        equation+="-x ";
+    }
+    else{
+        equation+=to_string(m)+"x ";
+    }
+    if(c<0){
+        equation+="-"+to_string(c);
+    }
+    else if(c==0){
+        equation+="";
+    }
+    else{
+        equation+="+"+to_string(c);
+    }
+    return equation;
+}
+void printLines(Line lines[])
+{
+	cout << endl;
+	for (int i = 0; i < 3; i++){
+
+	}
+	cout << endl;
 }
 int main(){
     Line lines[3];
