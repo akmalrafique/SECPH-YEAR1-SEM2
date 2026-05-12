@@ -7,7 +7,7 @@ class Line{
     int m;
     int c;
     public:
-    Line(int M=0,int C =0){
+    Line(int M=1,int C =0){
         m=M;
         c=C;
     }
@@ -38,16 +38,19 @@ bool Line:: operator!=(const Line& right)const{
 string Line::toString(){
     string equation="y=";
     if(m==1){
-        equation+="x +";
+        equation+="x ";
     }
     else if(m==-1){
         equation+="-x ";
+    }
+    else if(m==0){
+        equation+="";
     }
     else{
         equation+=to_string(m)+"x ";
     }
     if(c<0){
-        equation+="-"+to_string(c);
+        equation+=to_string(c);
     }
     else if(c==0){
         equation+="";
@@ -61,12 +64,14 @@ void printLines(Line lines[])
 {
 	cout << endl;
 	for (int i = 0; i < 3; i++){
-        cout<<"line "<<i+1<<"slope(m) = "<<lines[i].m<<" , y-intercept(c) = "<<lines[i].c<<",equation: "<<lines[i].toString()<<endl;
+        cout<<"line "<<i+1<<" slope(m) = "<<lines[i].m<<" , y-intercept(c) = "<<lines[i].c<<",equation: "<<lines[i].toString()<<endl;
 	}
 	cout << endl;
 }
 int main(){
     Line lines[3]={Line(1,5),Line(),Line()};
+    cout<<"ORIGINAL LINES"<<endl;
+    printLines(lines);
     cout<<"Set the second line from user input"<<endl;
     lines[1].read();
     lines[2]=lines[0]-lines[1];
@@ -78,12 +83,6 @@ int main(){
     else{
         cout<<"The first line is not perpendicular to the last line "<<endl;
     }
-
-
-
-
-
-
-
     return 0;
+
 }
