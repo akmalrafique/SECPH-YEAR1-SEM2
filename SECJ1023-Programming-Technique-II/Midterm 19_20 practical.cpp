@@ -38,8 +38,7 @@ class Student{
     }
     void readInput(){
         cout<<"Name:";
-        cin.ignore();
-        getline(cin,name);
+        getline(cin>>ws,name);
         cout<<"Matric Number:";
         cin>>matric;
         cout<<"CGPA:";
