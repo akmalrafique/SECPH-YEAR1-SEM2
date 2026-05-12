@@ -15,6 +15,7 @@ class Line{
     Line operator-(const Line& right)const;
     bool operator!=(const Line& right)const;
     string toString();
+    friend void printLines(Line lines[]);
 };
 void Line:: read(){
     cout<<"Enter the slope (m) and y-intercept of a line (c) =>";
@@ -60,7 +61,7 @@ void printLines(Line lines[])
 {
 	cout << endl;
 	for (int i = 0; i < 3; i++){
-
+        cout<<"line "<<i+1<<"slope(m) = "<<lines[i].m<<" , y-intercept(c) = "<<lines[i].c<<",equation: "<<lines[i].toString()<<endl;
 	}
 	cout << endl;
 }
