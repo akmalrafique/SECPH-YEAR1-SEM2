@@ -10,6 +10,11 @@ class Line{
         m=M;
         c=C;
     }
+    void read();
 
 
 };
+void Line:: read(){
+    cout<<"Enter the slope (m) and y-intercept of a line (c) =>";
+    cin>>m>>c;
+}
