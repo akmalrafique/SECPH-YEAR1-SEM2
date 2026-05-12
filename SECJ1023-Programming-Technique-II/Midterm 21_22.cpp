@@ -66,7 +66,20 @@ void printLines(Line lines[])
 	cout << endl;
 }
 int main(){
-    Line lines[3];
+    Line lines[3]={Line(1,5),Line(),Line()};
+    cout<<"Set the second line from user input"<<endl;
+    lines[1].read();
+    lines[2]=lines[0]-lines[1];
+    cout<<"UPDATE LINES"<<endl;
+    printLines(lines);
+    if(lines[0]!=lines[2]){
+        cout<<"The first line is perpendicular to the last line "<<endl;
+    }
+    else{
+        cout<<"The first line is not perpendicular to the last line "<<endl;
+    }
+
+
 
 
 
