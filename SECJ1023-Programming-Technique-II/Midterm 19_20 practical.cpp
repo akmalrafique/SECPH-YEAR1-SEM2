@@ -82,13 +82,14 @@ else if(temp.matric.substr(3,2)=="EC"){
 }
 else
 program="Non Computing Program ";
-cout<<"You are in year "<<year<<"in "<<program<<endl;
+cout<<"You are in year "<<year<<" in "<<program<<endl;
 }
 ostream& operator<<(ostream& output,const Student& right){
+    output<<"<<< Output >>> "<<endl;
     output<<"Hello "<<right.name<<endl;
     dispInfo(right);
     output<<"Your matric number is "<<right.matric<<endl;
-    output<<"Your current CGPA is"<<right.cgpa<<endl;
+    output<<"Your current CGPA is "<<right.cgpa<<endl;
     output<<"Your status is "<<right.getStatus()<<endl;
     if(right.cgpa>=3.67){
         output<<"CONGRATULATIONS. You are awarded DEANs LIST"<<endl;
@@ -97,6 +98,8 @@ ostream& operator<<(ostream& output,const Student& right){
 }
 int main(){
     Student p1,p2("Hashim Abu","A17CS1234",4.0,18);
+    cout<<"CGPA Calculator"<<endl;
+    cout<<"<<< Input >>>"<<endl;
     p1.readInput();
     cout<<p1;
     cout<<p2;
