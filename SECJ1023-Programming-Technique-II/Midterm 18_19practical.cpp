@@ -30,7 +30,7 @@ class Student{
         return result;
     }
     friend ostream& operator<<(ostream& output,Student& s){
-        output<<s._name<<"Registered Courses: "<<s.getRegisteredCourses()
+        output<<s._name<<"Registered Courses: "<<s.getRegisteredCourses();
 
     }
 };
