@@ -119,6 +119,27 @@ class Sphere : public ThreeDimensionalObject{
         return (4.0 / 3.0) * PI * radius * radius * radius;
     }
 };
+int main(){
+    ThreeDimensionalObject* obj = nullptr;
+    int input;
+    cout << "Enter the type of object 1: Cuboid, 2: Sphere => ";
+    cin >> input;    
+    if(input==CUBOID){
+        obj = new Cuboid();
+        obj->input();
+        obj->display();
+        cout << "Volume: "obj->volume();
+    }
+    else if(input==SPHERE){
+        obj = new Sphere();
+        obj->input();
+        obj->display();
+        cout << "Volume: "obj->volume();
+
+    }
+    else{
+        cout << endl << "Invalid input" << endl;
+    }
 
 
 
@@ -131,31 +152,42 @@ class Sphere : public ThreeDimensionalObject{
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    system("pause"); 
+    system("pause");
     return 0;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
