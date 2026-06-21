@@ -86,7 +86,7 @@ class ThreeDimensionalObject {
     virtual void input() =0;
     virtual void display() =0;
     virtual double volume() =0;
-    ~virtual ThreeDimensionalObject();
+    virtual ~ThreeDimensionalObject();
 };
 
 class Cuboid : public ThreeDimensionalObject {
