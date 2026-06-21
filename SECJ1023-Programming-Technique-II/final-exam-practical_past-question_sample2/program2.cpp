@@ -83,9 +83,9 @@ using namespace std;
 
 class ThreeDimensionalObject {
     public:
-    virtual void input();
-    virtual void display();
-    virtual double volume();
+    virtual void input() =0;
+    virtual void display() =0;
+    virtual double volume() =0;
     ~virtual ThreeDimensionalObject();
 };
 
@@ -140,16 +140,6 @@ int main(){
     else{
         cout << endl << "Invalid input" << endl;
     }
-
-
-
-
-
-
-
-
-
-
 
 
     system("pause");
