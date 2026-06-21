@@ -1182,8 +1182,8 @@ private:
 
 public:
     explicit Circle(double r) : radius(r) {}
-    double area() const override { return M_PI * radius * radius; }
-    double perimeter() const override { return 2 * M_PI * radius; }
+   // double area() const override { return M_PI * radius * radius; }
+    //double perimeter() const override { return 2 * M_PI * radius; }
     string name() const override { return "Circle"; }
 };
 
