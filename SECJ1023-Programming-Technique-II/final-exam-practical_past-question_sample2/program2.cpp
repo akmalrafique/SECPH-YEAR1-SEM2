@@ -85,7 +85,7 @@ class ThreeDimensionalObject {
     public:
     virtual void input() =0;
     virtual void display() =0;
-    virtual double volume() =0;
+    virtual double volume() const =0;
     virtual ~ThreeDimensionalObject();
 };
 
@@ -100,7 +100,7 @@ class Cuboid : public ThreeDimensionalObject {
     void display () override{
         cout << endl << "Cuboid dimensions: " << width << " x " << length << " x " << height << endl;
     }
-    double volume () override{
+    double volume () const override{
         return width * length * height;
     } 
 };
@@ -128,13 +128,13 @@ int main(){
         obj = new Cuboid();
         obj->input();
         obj->display();
-        cout << "Volume: "obj->volume();
+        cout << "Volume: "<<obj->volume();
     }
     else if(input==SPHERE){
         obj = new Sphere();
         obj->input();
         obj->display();
-        cout << "Volume: "obj->volume();
+        cout << "Volume: "<<obj->volume();
 
     }
     else{
