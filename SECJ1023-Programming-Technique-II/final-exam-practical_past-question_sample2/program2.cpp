@@ -89,22 +89,36 @@ class ThreeDimensionalObject {
     ~virtual ThreeDimensionalObject();
 };
 
-class Cuboid{
+class Cuboid : public ThreeDimensionalObject {
     private:
     double width, length, height;
     public:
-    void input override(){
+    void input () override{
         cout << "Enter the dimensions, width, length and height => ";
         cin >> width >> length >> height;
     }
-    void display override(){
+    void display () override{
         cout << endl << "Cuboid dimensions: " << width << " x " << length << " x " << height << endl;
     }
-    double volume override(){
+    double volume () override{
         return width * length * height;
     } 
 };
-
+class Sphere : public ThreeDimensionalObject{
+    private:
+    double radius;
+    public:
+    void input () override{
+        cout << "Enter the radius => ";
+        cin >> radius;
+    }
+    void display () override{
+        cout << endl << "Sphere's radius: " << radius << endl;
+    }
+    double volume () const override {
+        return (4.0 / 3.0) * PI * radius * radius * radius;
+    }
+};
 
 
 
