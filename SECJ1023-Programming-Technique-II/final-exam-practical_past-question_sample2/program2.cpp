@@ -85,10 +85,25 @@ class ThreeDimensionalObject {
     public:
     virtual void input();
     virtual void display();
-    virtual int readUserInput();
+    virtual double volume();
+    ~virtual ThreeDimensionalObject();
 };
 
-
+class Cuboid{
+    private:
+    double width, length, height;
+    public:
+    void input override(){
+        cout << "Enter the dimensions, width, length and height => ";
+        cin >> width >> length >> height;
+    }
+    void display override(){
+        cout << endl << "Cuboid dimensions: " << width << " x " << length << " x " << height << endl;
+    }
+    double volume override(){
+        return width * length * height;
+    } 
+};
 
 
 
