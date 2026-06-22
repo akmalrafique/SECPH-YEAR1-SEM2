@@ -6,11 +6,58 @@
 //advisor can exist independantly even if object student is destroyed
 //iii)Advisor and Person->the relationship is inheritance(generalization).indicated by the open triangle arrow pointing from Advisor to the Person base class.
 //advisor "is a "specific type of person which inherits its attribute and method.
-//Yes, structurally, an advisor can conceptually have more than one student under them.
+//b) Yes, structurally, an advisor can conceptually have more than one student under them.
 //Justification: In an aggregation relationship, multiple Student objects can contain a pointer or reference to the exact same Advisor object. However,
 //it is important to note that based on this specific UML diagram, the Advisor class itself does not contain a list or array to track those students internally.
+//c)No, it is not possible to properly define an Advisor::getStudent() method without modifying the current design.
+//Justification: The diagram illustrates a unidirectional association from Student to Advisor. The Advisor class lacks any attribute 
+//(such as an array or a vector of pointers) that links back to the Student objects. To make this possible, a bidirectional relationship
+// would need to be established in the UML.it should have like
+// UML Attribute Notation: * - studentList: Student*[MAX] and  - studentCount: int orrrr  Student* student;
 //
 //
 //
 //
-//
+#include<iostream>
+using namespace std;
+
+class Address{
+    private:
+    string city;
+    public:
+    Adress(){}
+    setCity(){}
+    getCity(){}
+
+};
+class Person{
+    private:
+    string name;
+    public:
+    Person(){}
+    getName(){}
+    getAddress(){}
+
+
+};
+class Student : public Person{
+    private:
+    string program;
+    public:
+    Student(){}
+    setAdvisor(){}
+    getAdvisor(){}
+    getCity(){}
+    getAdvisorName(){}
+    getAdvisorCity(){}
+
+
+
+};
+class Advisor : public Person{
+    private:
+    string faculty;
+    public:
+    Advisor(){}
+    getFaculty(){}
+};
