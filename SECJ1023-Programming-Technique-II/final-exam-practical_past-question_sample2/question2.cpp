@@ -57,8 +57,11 @@ class Advisor : public Person{
     private:
     string faculty;
     public:
-    Advisor(string a = ""):faculty(a){}
-    string getFaculty(string f){
+    Advisor(string n,string c,string f){
+        Person = n,c;
+        faculty = f;
+    }
+    string getFaculty(){
         return faculty;
     }
 };
