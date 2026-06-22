@@ -25,9 +25,13 @@ class Address{
     private:
     string city;
     public:
-    Adress(){}
-    setCity(){}
-    getCity(){}
+    Address(string c = " "):city(c){}
+    void setCity(string c){
+        city=c;
+    }
+    string getCity(){
+        return city;
+    }
 
 };
 class Person{
