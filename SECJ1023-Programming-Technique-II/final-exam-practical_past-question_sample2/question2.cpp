@@ -37,16 +37,37 @@ class Address{
 class Person{
     private:
     string name;
+    Address address;
     public:
-    Person(){}
-    getName(){}
-    getAddress(){}
-
+    Person(string n,string c){
+        name =n;
+        address = c;
+    }
+    string getName(){
+        return name;
+    }
+    string getAddress(){
+        return address;
+    }
 
 };
+
+
+class Advisor : public Person{
+    private:
+    string faculty;
+    public:
+    Advisor(string a = ""):faculty(a){}
+    string getFaculty(string f){
+        return faculty;
+    }
+};
+
+
 class Student : public Person{
     private:
     string program;
+
     public:
     Student(){}
     setAdvisor(){}
@@ -57,11 +78,4 @@ class Student : public Person{
 
 
 
-};
-class Advisor : public Person{
-    private:
-    string faculty;
-    public:
-    Advisor(){}
-    getFaculty(){}
 };
