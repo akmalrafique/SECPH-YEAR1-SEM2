@@ -46,7 +46,7 @@ class Person{
     string getName(){
         return name;
     }
-    string getAddress(){
+    Address getAddress(){
         return address;
     }
 
@@ -70,12 +70,18 @@ class Advisor : public Person{
 class Student : public Person{
     private:
     string program;
-
+    Advisor* advisor;
     public:
-    Student(){}
-    setAdvisor(){}
-    getAdvisor(){}
-    getCity(){}
+    Student(string n,string c,string p) : Person(n,c),program(p),advisor(nullptr){}
+    setAdvisor(Advisor* adv){
+        advisor=adv;
+    }
+    Advisor* getAdvisor(){
+        return advisor;
+    }
+    string getCity(){
+        return getAddress().getCity();
+    }
     getAdvisorName(){}
     getAdvisorCity(){}
 
