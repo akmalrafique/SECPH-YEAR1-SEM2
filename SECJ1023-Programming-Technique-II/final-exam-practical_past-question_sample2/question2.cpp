@@ -73,7 +73,7 @@ class Student : public Person{
     Advisor* advisor;
     public:
     Student(string n,string c,string p) : Person(n,c),program(p),advisor(nullptr){}
-    setAdvisor(Advisor* adv){
+    void setAdvisor(Advisor* adv){
         advisor=adv;
     }
     Advisor* getAdvisor(){
@@ -86,6 +86,17 @@ class Student : public Person{
         return advisor->getName();
     }
     string getAdvisorCity(){
-
+        return advisor->getAddress().getCity();
     }
 };
+int main(){
+    Student s1("Ali","skudai","fc");
+    Advisor a1("Dr Abu","Johor Bahru","fc");
+    
+
+
+
+
+
+    return 0;
+}
