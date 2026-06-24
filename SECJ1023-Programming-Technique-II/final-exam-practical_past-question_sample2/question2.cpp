@@ -82,9 +82,10 @@ class Student : public Person{
     string getCity(){
         return getAddress().getCity();
     }
-    getAdvisorName(){}
-    getAdvisorCity(){}
+    string getAdvisorName(){
+        return advisor->getName();
+    }
+    string getAdvisorCity(){
 
-
-
+    }
 };
