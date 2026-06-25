@@ -39,10 +39,8 @@ class Person{
     string name;
     Address address;
     public:
-    Person(string n,string c){
-        name =n;
-        address = c;
-    }
+    Person(string n, string c) : name(n), address(c) {}
+    
     string getName(){
         return name;
     }
@@ -57,10 +55,9 @@ class Advisor : public Person{
     private:
     string faculty;
     public:
-    Advisor(string n,string c,string f){
-        Person = n,c;
-        faculty = f;
-    }
+    Advisor(string n, string c, string f) : Person(n, c) {
+    faculty = f;
+}
     string getFaculty(){
         return faculty;
     }
@@ -90,13 +87,15 @@ class Student : public Person{
     }
 };
 int main(){
-    Student s1("Ali","skudai","fc");
-    Advisor a1("Dr Abu","Johor Bahru","fc");
-    
+    Advisor drAbu("Dr. Abu", "Johor Bharu", "FC");
+    Student ali("Ali", "Skudai", "Computer Science");
 
-
-
-
+    ali.setAdvisor(&drAbu); 
+    cout << "Student's name: " << ali.getName() << endl;
+    cout << "Student's city: " << ali.getCity() << endl;
+    cout << "Advisor's name: " << ali.getAdvisorName() << endl;
+    cout << "Advisor's city: " << ali.getAdvisorCity() << endl;
+    cout << "Advisor's faculty: " << ali.getAdvisor()->getFaculty() << endl;
 
     return 0;
 }
