@@ -72,7 +72,7 @@ public:
     void printSummary() const
     {
         cout << "Name:" << name << endl;
-        cout << "Matric:" << matric << matric << endl;
+        cout << "Matric:" << matric << endl;
         cout << "Number of courses enrolled:" << getEnrolledCount() << endl;
         cout << "Total credit carried:" << getTotalCredit() << endl;
     }
@@ -89,7 +89,7 @@ int main()
     // "new" return the memory adress of the object
     //without new, the object exxist only until it goes out of scope
     //so basically this create an object first, but because of the vector use pointer instead of object,it will only accept ADRESS 
-    //then later the new is the reason this object become memory adress and does not dissapear when it goes out of scope, then this memory
+    //then later the new is the reason adress does not dissapear when it goes out of scope, then this memory
     // adress is store at the vector
     courses.push_back(new Course("Programming Technique II", 3));     // Course 2
     courses.push_back(new Course("Operating Systems", 3));            // Course 3
@@ -107,7 +107,7 @@ int main()
     map<string,Student*>studentMap;
     //creating a map callep studentMap
     //string is the key(matric unmber)
-    //student* is the value(actual student object)
+    //student* is the value(adress of student object)
     //telling the computer when give matric nunmber, give back the full student information
 
     Student* s1= new Student("Mario Max","A16EC4041");
