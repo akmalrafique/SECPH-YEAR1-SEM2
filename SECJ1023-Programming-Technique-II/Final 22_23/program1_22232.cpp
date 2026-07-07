@@ -150,9 +150,15 @@ int main()
     if(studentMap.count(inputMatric)){
         //count() check wheteher a key exist inside the map (1-key exist ,0-not exist)
         cout<<"information of found student"<<endl;
-        cout<"============================="<<endl;
+        cout<<"============================="<<endl;
         studentMap[inputMatric]->printSummary();
         //studentMap[inputMatric] return student pointer like(anna maybe) then -> go to the object
+        cout<<"list of courses enrolled"<<endl;
+        studentMap[inputMatric]->printCourses();
+    }
+    else{
+        cout<<"the student is not found"<<endl;
+
     }
 
     system("pause"); //! remove this line if you are using DevC++
