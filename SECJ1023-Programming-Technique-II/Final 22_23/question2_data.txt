@@ -1,0 +1,12 @@
+data for Cars
+No	brand	Year    Doors
+---	------	---- 	-----
+1	Toyota 	2015 	4
+2	BM	2019	2
+3	Nissan	2018	5
+
+data for Motorcycles
+No	brand		Year    type
+---	------		---- 	-----
+1	Honda   	2020	Sport
+2	Harley-Davidson 2017	Cruiser
