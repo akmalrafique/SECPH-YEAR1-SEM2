@@ -1,4 +1,6 @@
 #include<iostream>
+#include<stdexcept>
+#include<string>
 using namespace std;
 
 class Vehicle{
@@ -86,6 +88,7 @@ int main(){
     }
     catch(const runtime_error& e){
         cout << "An error occurred: "<<e.what()<<endl;
+        //e.what() return "the maximum number of vehicles has been reached!!"
     }
     return 0;
 }
