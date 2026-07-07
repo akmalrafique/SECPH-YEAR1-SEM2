@@ -1,0 +1,22 @@
+a) yes the veihcle class si an abstract class
+-car & motorcycle isnt abstract class because they override the pure virtual funciton
+-a class is considred  absstract if it contain at least one pure virtual funciton
+-calculateTax()=0 is pure virtual function
+-because vehicle has this pure virtual function, it cannot be instantatiated directly, making it an abstract class
+
+b)diifrent between pure virtual function and virtual function
+definition
+VF-a function in a base class taht can be overridden by a derived class
+PVF-a funcition in base class that must be overriden by derivved class
+
+implementaiton
+VF-provides a default implemaentation in the bse class
+PVF-provide no implementation in the bse class
+
+purpose
+VF-used to achive runtime poymorphism when a default behavior is useful
+PVF-used to defined an interface that all derived calss must be implementedd to be concreated
+
+instantaition
+VF- the base class can be instantianted
+PVF-the base class becomes abstract and cannot be instantiated
