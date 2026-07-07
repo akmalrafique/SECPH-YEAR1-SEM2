@@ -29,6 +29,7 @@ class Student
 private:
     string name, matric;
     vector<Course *> courses;
+    //courses is a vector that stores Course pointers.
 
 public:
     Student(string _name = "", string _matric = "") : name(_name), matric(_matric) {}
@@ -37,16 +38,33 @@ public:
     void setMatric(string value) { matric = value; }
 
     //! Task 1
-    void enrollToCourse(Course *c) {}
+    void enrollToCourse(Course *c) {
+        courses.push_back(c);
+        //push_back means add an item at the the end of the vector
+    }
 
     //! Task 2
-    int getEnrolledCount() const {}
+    int getEnrolledCount() const {
+        return courses.size();
+        //size() Returns the size or the number of elements
+    }
 
     //! Task 3
-    int getTotalCredit() const {}
+    int getTotalCredit() const {
+        int total = 0;
+        for(size_t i=0;i<courses.size();++i){
+            //size_t is unsign integer,can also use int but it will trigger a warning
+            total+=courses[i]->getCredit();
+        }
+        return total;
+    }
 
     //! Task 4
-    void printCourses() const {}
+    void printCourses() const {
+        for(int i=0;i<courses.size();++i){
+            courses[i]->print();
+        }
+    }
     void printSummary() const
     {
         cout << "Name:" << name << endl;

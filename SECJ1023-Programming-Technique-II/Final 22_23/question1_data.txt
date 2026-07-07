@@ -1,0 +1,57 @@
+Sample data for Students
+No	matric		Name
+---	------		-----------
+1	A16EC4041	Mario Max
+2	A16EC4045	Wilma Mumduya
+3	A18EC4056	Anna Sthesia
+4	A16EC9043	Paul Molive
+5	A19EC4002	Anna Mull
+6	A16EC4032	Gail Forcewind
+7	A16EC3002	Paige Turner
+8	A17EC3003	Bob Frapples
+9	A17EC4043	Robin Banks
+10	A18EC4044	Jimmy Changa
+
+Sample data for Courses
+No	Course				        Credit
+---	-----------------------		------
+1	Programming Technique I		3
+2	Programming Technique II	3
+3	Operating Systems		    3
+4	Web Programming			    3
+5	Digital Logic			    3
+6	Object-Oriented Programming	4
+7	Application Development		4
+8	Final Year Project I 		2
+9	Software Engineering		3
+10	Graduate Success Attributes	2
+
+Sample data for student enrollments to courses
+================================================
+Student No.1(A16EC4041,	Mario Max)
+----------------------------------
+Enrolls to Courses:
+Programming Technique I
+Digital Logic
+Graduate Success Attributes
+
+
+Student No. 5(A19EC4002,Anna Mull)
+----------------------------------
+Enrolls to Courses:
+Programming Technique II
+Operating Systems
+Digital Logic
+Web Programming
+Software Engineering
+
+Student No. 10(A18EC4044,Jimmy Changa)
+------------------------------------
+Enrolls to Courses:
+Web Programming
+Object-Oriented Programming
+Application Development
+Final Year Project I
+Programming Technique II
+
+
