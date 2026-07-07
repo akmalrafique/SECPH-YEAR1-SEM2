@@ -126,10 +126,11 @@ int main()
     s1->enrollToCourse(courses[0]);//programing tech 1
     //courses[0] is the vector that we used to store course info
     s1->enrollToCourse(courses[4]); // Digital Logic
+    //course[4] IS A ADRESS SO NO NEED "&"
     s1->enrollToCourse(courses[9]); // Grad Success Attr
     s1->enrollToCourse(courses[0]); // Duplicate as per example
 
-    
+
     s5->enrollToCourse(courses[1]); // Prog Tech II
     s5->enrollToCourse(courses[2]); // Operating Sys
     s5->enrollToCourse(courses[4]); // Digital Logic
@@ -142,7 +143,17 @@ int main()
     s10->enrollToCourse(courses[7]); // FYP I
     s10->enrollToCourse(courses[1]); // Prog Tech II
     //! Task7: Search for a student and display its information
-
+    string inputMatric;
+    cout<<"enter the matric number=> ";
+    cin>> inputMatric;
+    //inputMatric check to see if input a "key" or not
+    if(studentMap.count(inputMatric)){
+        //count() check wheteher a key exist inside the map (1-key exist ,0-not exist)
+        cout<<"information of found student"<<endl;
+        cout<"============================="<<endl;
+        studentMap[inputMatric]->printSummary();
+        //studentMap[inputMatric] return student pointer like(anna maybe) then -> go to the object
+    }
 
     system("pause"); //! remove this line if you are using DevC++
     return 0;
