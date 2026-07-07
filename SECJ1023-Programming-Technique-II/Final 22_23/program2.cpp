@@ -49,13 +49,43 @@ class Car:public Vehicle{
 };
 class Garage{
     private:
-    int numVehicle;
-    Vehicle* vehicle[5];
+    int numVehicles;
+    Vehicle* vehicle[5];//array of vehicle pointer stated by the question
     public:
     Garage(){
+        numVehicles=0;
     }
     void addVehicle(Vehicle* v){
-        vehicle=v;
+        if(numVehicles>=5){
+            throw runtime_error("the maximum number of vehicles has been reached!!");
+        }
+        vehicle[numVehicles++]=v;
     }
-    void displayInfo(){}
+
+    void displayInfo(){
+        cout<<"***** Garage details*****"<<endl;
+        for(int i =0;i<numVehicles;++i){
+            cout<<i+1<<".";
+            vehicle[i]->displayDetails();
+            //Since displayDetails() is virtual in Vehicle,C++ checks the actual object, not just the pointer type.
+            //ex vehicle[0] is a car object,so it call the car displayDetails()            
+        }
+    }
 };
+
+int main(){
+    Garage myGarage;
+    try{
+        myGarage.addVehicle(new Car("Toyota",2015,4));
+        myGarage.addVehicle(new Car("BMW", 2019, 2));
+        myGarage.addVehicle(new Motorcycle("Honda", 2020, "Sport"));
+        myGarage.addVehicle(new Car("Nissan", 2018, 5));
+        myGarage.addVehicle(new Motorcycle("Harley-Davidson", 2017, "Cruiser"));
+
+        myGarage.displayInfo();
+    }
+    catch(const runtime_error& e){
+        cout << "An error occurred: "<<e.what()<<endl;
+    }
+    return 0;
+}
