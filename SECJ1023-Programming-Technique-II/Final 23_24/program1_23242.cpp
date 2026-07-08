@@ -138,16 +138,22 @@ int main()
 {
     //!Task g: rewrite the main function using vector instead of regular array, including iteration
     const int count=4;
-    Course courses[count];
+    /*Course courses[count];
 
     courses[0].setCode("SECJ1013");
     courses[1].setCode("SECJ1023");
     courses[2].setCode("SECJ3623");
-    courses[3].setCode("SECV3032");
+    courses[3].setCode("SECV3032");*/
+    vector <Course> courses;
+    courses.push_back(Course("SECJ1013"));
+    //push_back() only accept  object and Course("SECJ1013") is an object
+    courses.push_back(Course("SECJ1023"));
+    courses.push_back(Course("SECJ3623"));
+    courses.push_back(Course("SECV3032"));
 
-    for (int i = 0; i < count; i++)
+    for (int i = 0; i < courses.size(); i++)
         cout << courses[i].getCode() << " " << courseCodeToName(courses[i].getCode()) << endl;
-
+//courses[i].getCode() need tht getcode() becuse courses[i] is an object 
     system("pause"); //! remove this line if you are using DevC++
     return 0;
 };
@@ -157,6 +163,7 @@ int main()
 string courseCodeToName(string code)
 {
 
+/*
     if (code == "SECJ1013")
         return "Programming Technique I";
  
@@ -166,5 +173,12 @@ string courseCodeToName(string code)
     if (code == "SECJ3623")
         return "Mobile Application Programming";
  
-    return "";
+    return "";*/
+    map <string,string> courseMap;
+    courseMap["SECJ1013"]="PROGRAMMING TECHNIQUE 1";
+    courseMap["SECJ1023"]="PROGRAMMING TECHNIQUE 2";
+    courseMap["SECJ3623"]="MOBILE APPLICATION PROGRAMMING";
+
+    return courseMap[code];
+    //return the subject name based on the given code that function accept
 }
