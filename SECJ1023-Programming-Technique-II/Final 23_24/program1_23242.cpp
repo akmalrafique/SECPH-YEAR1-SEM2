@@ -3,12 +3,14 @@
 
 // Final Exam (Practical - Question 1)
 
-// Student's Name:.....................
+// Student's Name:AKMAL RAFIQUE BIN AHMAD RAPHAIE
 // Matric Number:.....................
 
 
 #include <iostream>
 #include <string>
+#include<vector>
+#include<map>
 using namespace std;
 
 class Department
@@ -82,16 +84,34 @@ public:
     string getCode() const { return code; }
 
     // ! Task f(i) - constructor
-    Course(string c="") {}
+    Course(string c="") {
+        code=c;
+        lecturer=nullptr;
+    }
 
     // ! Task f(ii) - setLecturer
-    
+    void setLecturer(Lecturer* lect){
+        lecturer=lect;
+    }
 
     // ! Task f(iii) - hasLecturer
-    
+
+    bool hasLecturer()const{
+
+        return lecturer!=nullptr;
+    }
 
 
     // ! Task f(iv) - getLecturerName
+    string getLecturername(){
+        if(hasLecturer()){
+        return lecturer->getName();//so we have lecturer pointer here,and lecturer also
+        //inherit from person so it can access it.
+        }
+        return "";
+        //this if statement is important because if lecturer object is empty or nullptr
+        //(the lecturer->getName() will derefference a null pointer which cause crash)
+    }
 };
 
 
