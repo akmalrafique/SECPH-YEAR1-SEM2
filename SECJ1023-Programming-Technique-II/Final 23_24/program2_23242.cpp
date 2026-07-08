@@ -53,10 +53,10 @@ class Pizza:public Fooditem{
         size=s;
     }
     void dispDetails(){
-        cout<<"pizza - "<<name;
-        cout<<"price: "<<price;
-        cout<<"quantity: "<<quantity;
-        cout<<"size: "<<size;
+        cout<<"pizza - "<<name<<endl;
+        cout<<"price: "<<price<<endl;
+        cout<<"quantity: "<<quantity<<endl;
+        cout<<"size: "<<size<<endl;
     }
 
 };
@@ -68,15 +68,16 @@ class Burger:public Fooditem{
         isDoublePatty=i;
     }
     void dispDetails(){
-        cout<<"burger - "<<name;
-        cout<<"price: "<<price;
-        cout<<"quantity: "<<quantity;
-        cout<<"double patty: "<<isDoublePatty;        
+        cout<<"burger - "<<name<<endl;
+        cout<<"price: "<<price<<endl;
+        cout<<"quantity: "<<quantity<<endl;
+        cout<<"double patty: "<<isDoublePatty<<endl;        
     }
     double calcPrice(){
-        if(isDoublePatty!=true){
+        if(isDoublePatty==true){
            return quantity*(price+3.80); 
         }
+        else return quantity*price;
     }
 
 };
