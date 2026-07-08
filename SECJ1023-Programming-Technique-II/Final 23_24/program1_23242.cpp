@@ -31,31 +31,42 @@ class Person
 {
 protected:
     string name;
-
+    Department department;
 public:
     string getName() const { return name; }
  
     // ! Task d(i) - constructor
-    Person(string n="", string d="", string f="") {}
-
+    Person(string n="", string d="", string f=""):name(n){
+        department.setName(d);
+        department.setFaculty(f);
+    }
     //! Task d(ii) - getDepartment
+    Department getDepartment()const{
+
+        return department;
+    }
 };
 
 
-class Lecturer
+class Lecturer:public Person
 {
 private:
     string position;
 
 public:
+
     string getPosition() const { return position; }
 
 
     // ! Task e(i) - constructor
-    Lecturer(string n, string d, string f, string p){}
-
-
+    Lecturer(string n, string d, string f, string p):Person(n,d,f){
+        position=p;
+    }
     // ! Task e(ii) - getFaculty
+    string getFaculty(){
+
+        return getDepartment().getFaculty();
+    }
 };
 
 
@@ -63,7 +74,8 @@ class Course
 {
 private:
     string code;
-    
+    Lecturer* lecturer;
+
 
 public:
     void setCode(string c) { code = c; }
@@ -83,10 +95,11 @@ public:
 };
 
 
-class TeachingAssistant
+class TeachingAssistant:public Person
 {
 protected:
     int maxHour;
+    Course* course;
 
 public:
     double getMaxClaim() const { return maxHour * 8.0; }
