@@ -38,8 +38,12 @@ class Order{
         fooditem[i]->dispDetails();
         total+= fooditem[i]->calcPrice();
     }
-    cout<<"total order is price is: rm "<<total<<endl;
-}
+    if(total<20){
+        throw runtime_error("The total order amount is less than RM20.To place an online order, the minimum order amount should be RM20!");
+    }
+    else{
+    cout<<"total order is price is: rm "<<total<<endl;}
+    }
 };
 class Pizza:public Fooditem{
     private:
@@ -87,7 +91,14 @@ int main(){
     for(int i=0;i<5;++i){
         myorder.additem(item[i]);
     }
-    myorder.dispOrder();
+    try{
+        myorder.dispOrder();
+    }
+    catch(const runtime_error& e){
+        cout<<"orderexception: "<<e.what();
+
+    }
+    
     for(int i=0;i<5;i++){
         delete item[i];
     }
