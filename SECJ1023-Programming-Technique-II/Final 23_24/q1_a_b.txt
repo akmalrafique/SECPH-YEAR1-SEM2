@@ -1,0 +1,39 @@
+//
+
+i) lecturer and department
+-no direct relationship
+-although lecturer inherits from person and person has a composition realationship with department,there is no direct link(such as association or aggregation)
+
+
+
+
+
+The diagram does not draw a direct association line between 
+Lecturer and Department. * Because there is no direct line, 
+stating there is an "Association" relationship between them 
+is technically incorrect based on the provided figure.
+ii)teaching asistant and lecturer
+-no relationship
+-there is no line connecting both
+
+iii)teaching assistance and person
+-inheritance
+-teaching assistance is a person
+-indicates by triangle arrow
+-teaching asistance can inherit form person
+
+iv)coourse and lecturer
+-aggregation(hollow diamond)
+-course has a lecturer
+-weak assosiation
+-if course object is destroyed, lecturer still exist
+
+
+b)both of it is a aggregation relationship
+course and teachiing asisstance
+-a course may have one or more teaching assistance to assist the course?
+-teaching assistance can exist independantly of the course
+
+course and lecturer
+-a course is assign one lecturer who is responsible for teaching the course
+-lecturer can exist even if the course is deleted
