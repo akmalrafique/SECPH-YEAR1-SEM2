@@ -1,0 +1,26 @@
+a) virtual void dispDeatails()=0 and virtual double calcPrice()
+-to allow polymorphism
+-when u use virtul function,the bse class ensures that when you have a pointer to fooditem,the program will execute the specific version of these function defined in the pizza or burger classses at runti,e, rather than the base class version
+
+b)virtual funciton can use dynamis binding
+-virtual function allow the program to decide which function to call baseed on the actual object type at run time, wheres non virtual function are bound at compile time baesd on the pointer type
+- can add a new subclass liek(pasta) later without changing the code that manages the order or fooditem
+
+c)difrence
+vf-has a body implemantation inthe base class
+pvf-no body,assign to zero =0
+
+enforcement
+vf-derived class can oveerirde it but arent forced to
+pvf-derived clss must override it to be instantaniaable
+
+base class
+vf-base class can be instantaniate
+pvf-the bse class becomes abstract and cannot be instantaniated
+
+
+d)
+-use pure virtaul function when the bse clss defines n interface that cannot have a meaningful implemantation itself liek(displayDetails(),whuch depends entirely on what the food item actually is)
+-this force the subclass to provide their own specific implemantation,ensuring consistency
+
+
