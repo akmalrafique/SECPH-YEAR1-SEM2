@@ -8,7 +8,8 @@ b)virtual funciton can use dynamis binding
 
 c)difrence
 vf-has a body implemantation inthe base class
-pvf-no body,assign to zero =0
+pvf-no body,assign to zero =0 ;
+
 
 enforcement
 vf-derived class can oveerirde it but arent forced to
