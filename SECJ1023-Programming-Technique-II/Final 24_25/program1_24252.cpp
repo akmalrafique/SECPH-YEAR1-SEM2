@@ -80,14 +80,13 @@ private:
 public:
     // (d)(i) void addMember(Employee *)
     void addMember(Employee* employ ){
-        for(int i=0;i<3;i++){
-            members[i]=employ;
+        if(count<3){
+            members[count++]=employ;
         }
-
     }
     // (d)(ii) void teamMeeting() const
     void teamMeeting()const{
-        for(int i=0;i<3;i++){
+        for(int i=0;i<count;i++){
             members[i]->work();
         }
     }
@@ -115,7 +114,9 @@ int main() {
     // Relationship 3
     Team projectTeam;
     // (e)(iii) invoke the addMember() function and pass the dynamically allocated Developer object 
-
+    projectTeam.addMember(new Developer());
+    projectTeam.addMember(new Manager());
+    projectTeam.teamMeeting();
     // (e)(iii) invoke the addMember() function and pass the dynamically allocated Manager object
 
     // (e)(iii) invoke the teamMeeting() function
