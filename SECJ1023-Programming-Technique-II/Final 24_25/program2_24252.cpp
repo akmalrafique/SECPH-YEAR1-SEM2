@@ -34,7 +34,7 @@ class ElectronicProduct:public Product{
         cout<<"Electronic:"<<name<<endl;
         cout<<"Price: RM"<<price<<endl;
         cout<<"Quantity: "<<quantity<<endl;
-        cout<<"Warranty: "<<warranty<<" month"<<endl;
+        cout<<"Warranty: "<<warranty<<" month"<<endl<<endl;
     }
 
 };
@@ -47,7 +47,7 @@ class ClothingProduct:public Product{
         cout<<"Clothing:"<<name<<endl;
         cout<<"Price: RM"<<price<<endl;
         cout<<"Quantity: "<<quantity<<endl;
-        cout<<"Size: "<<size<<endl;        
+        cout<<"Size: "<<size<<endl<<endl;        
     }
 };
 class ShoppingCart{
@@ -71,8 +71,8 @@ class ShoppingCart{
     int above50() const{
         int above=0;
         for(int i=0;i<items.size();i++){
-            if(items[i]->calculateTotal()<50)
-            above+=items[i]->calculateTotal();
+            if(items[i]->calculateTotal()>50)
+            above++;
         }
         return above;
     }
@@ -93,7 +93,7 @@ int main(){
     catch(runtime_error& e){
         cout<<e.what()<<" Your order must be at least RM100 to proceed.";
     }
-    cout<<"number of product above RM50"<<cart.above50();
+    cout<<"number of product above RM50 : "<<cart.above50();
 
     system("pause");
 }
