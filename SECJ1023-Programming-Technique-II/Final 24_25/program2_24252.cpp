@@ -68,15 +68,32 @@ class ShoppingCart{
         }
         return total;
     }
+    int above50() const{
+        int above=0;
+        for(int i=0;i<items.size();i++){
+            if(items[i]->calculateTotal()<50)
+            above+=items[i]->calculateTotal();
+        }
+        return above;
+    }
     ~ShoppingCart(){}
 };
 
 int main(){
     ShoppingCart cart;
-    cart = new ElectronicProduct("Smart Watch",120,1,24);
+    cart.addProduct(new ElectronicProduct("Smart Watch",120,1,24));
     cart.addProduct(new ClothingProduct("T-Shirt",35,2,"L"));
     cart.displayCart();
     cout<<"Total Amount: RM"<<cart.calculateTotal()<<endl;
+    try{
+        if(cart.calculateTotal()<100){
+            throw runtime_error("LowTotalExecption:");
+        }
+    }
+    catch(runtime_error& e){
+        cout<<e.what()<<" Your order must be at least RM100 to proceed.";
+    }
+    cout<<"number of product above RM50"<<cart.above50();
 
     system("pause");
 }
