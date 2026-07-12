@@ -8,6 +8,8 @@
 
 #include<iostream>
 #include<string>
+#include<vector>
+#include<stdexcept>
 using namespace std;
 
 class Product{
@@ -32,7 +34,7 @@ class ElectronicProduct:public Product{
         cout<<"Electronic:"<<name<<endl;
         cout<<"Price: RM"<<price<<endl;
         cout<<"Quantity: "<<quantity<<endl;
-        cout<<"Warranty: "<<warranty<<endl;
+        cout<<"Warranty: "<<warranty<<" month"<<endl;
     }
 
 };
@@ -40,11 +42,41 @@ class ClothingProduct:public Product{
     private:
     string size;
     public:
-    ClothingProduct(string n,double p,int q,int s):Product(n,p,q),size(s){}
+    ClothingProduct(string n,double p,int q,string s):Product(n,p,q),size(s){}
     void display()const{
         cout<<"Clothing:"<<name<<endl;
         cout<<"Price: RM"<<price<<endl;
         cout<<"Quantity: "<<quantity<<endl;
-        cout<<"Warranty: "<<warranty<<endl;        
+        cout<<"Size: "<<size<<endl;        
     }
 };
+class ShoppingCart{
+    public:
+    vector<Product* >items;
+    void addProduct(Product* item){
+        items.push_back(item);
+    }
+    void displayCart()const{
+        for(int i=0;i<items.size();i++){
+            items[i]->display();
+        }
+    }
+    double calculateTotal()const{
+        double total=0;
+        for(int i=0;i<items.size();i++){
+            total+=items[i]->calculateTotal();
+        }
+        return total;
+    }
+    ~ShoppingCart(){}
+};
+
+int main(){
+    ShoppingCart cart;
+    cart = new ElectronicProduct("Smart Watch",120,1,24);
+    cart.addProduct(new ClothingProduct("T-Shirt",35,2,"L"));
+    cart.displayCart();
+    cout<<"Total Amount: RM"<<cart.calculateTotal()<<endl;
+
+    system("pause");
+}
