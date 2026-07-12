@@ -65,7 +65,7 @@ public:
 
     // (c)(iii) void dailyOperation() const
     void dailyOperation() const{
-        cout<<"company operation: "<<endl;
+        cout<<"company operation: ";
         employee->work();
     
     }
