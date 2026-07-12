@@ -68,14 +68,7 @@ class ShoppingCart{
         }
         return total;
     }
-    int above50() const{
-        int above=0;
-        for(int i=0;i<items.size();i++){
-            if(items[i]->calculateTotal()>50)
-            above++;
-        }
-        return above;
-    }
+
     ~ShoppingCart(){}
 };
 
@@ -93,7 +86,15 @@ int main(){
     catch(runtime_error& e){
         cout<<e.what()<<" Your order must be at least RM100 to proceed.";
     }
-    cout<<"number of product above RM50 : "<<cart.above50();
+    int count = 0;
+// Traditional for loop using an index 'i'
+for (int i = 0; i < cart.items.size(); i++) {
+    // Accessing the element at index 'i' using the pointer 'cart.items[i]'
+    if (cart.items[i]->calculateTotal() > 50.0) {
+        count++;
+    }
+}
+cout << "Number of products above RM50: " << count << endl;
 
     system("pause");
 }
