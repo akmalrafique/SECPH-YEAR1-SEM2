@@ -1,6 +1,6 @@
-// NAME: 
-// MATRIC NO.:
-// SECTION:
+// NAME: AKMAL RAFIQUE BIN AHMAD RAPHAIE
+// MATRIC NO.:A25CS0181
+// SECTION:02
 
 // SECJ1023 PROGRAMMING TECHNIQUE 2
 // FINAL EXAM (PRACTICAL) 2024/2025-02
@@ -8,16 +8,16 @@
 
 /*
 (a)(i)	Developer and Employee: 
-Relationship: 
+Relationship: Inheritance
 
 (a)(ii)	Manager and Team:
-Relationship: 
+Relationship: no relationship
 
 (a)(iii) Company and Employee: 
-Relationship: 
+Relationship: composition
 
 (a)(iv)	Team and Employee: 
-Relationship: 
+Relationship: aggregation
 */
 
 #include <iostream>
