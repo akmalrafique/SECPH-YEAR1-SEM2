@@ -27,8 +27,11 @@ using namespace std;
 class Employee {
 public:
     // (b)(i) virtual void work() const
-
+    virtual void work() const{
+        cout<< "employee working";
+    }
     // (b)(ii) virtual ~Employee()
+    virtual ~Employee(){};
 
 };
 
@@ -54,10 +57,18 @@ private:
     Employee* employee;  
 public:
     // (c)(i) Company(Employee *)
-
+    Company(Employee* emp){
+        employee= emp;
+    }
     // (c)(ii) ~Company()
-    
+    ~Company(){delete employee;}
+
     // (c)(iii) void dailyOperation() const
+    void dailyOperation() const{
+        cout<<"company operation: "<<endl;
+        employee->work();
+    
+    }
 
 };
 
@@ -68,9 +79,18 @@ private:
     int count = 0;
 public:
     // (d)(i) void addMember(Employee *)
+    void addMember(Employee* employ ){
+        for(int i=0;i<3;i++){
+            members[i]=employ;
+        }
 
+    }
     // (d)(ii) void teamMeeting() const
-
+    void teamMeeting()const{
+        for(int i=0;i<3;i++){
+            members[i]->work();
+        }
+    }
 };
 
 // main() - Partially given
@@ -83,14 +103,14 @@ int main() {
 
     for (int i = 0; i < 2; i++) {
         // (e)(i) invokes the work() function for each Employee in the array
-
+        employees[i]->work();
     }
 
     // Relationship 2
     // (e)(ii) create Company object and pass the dynamically allocated Developer object
-
+    Company cpn(new Developer());
     // (e)(ii) invokes the dailyOperation() function
-
+    cpn.dailyOperation();
 
     // Relationship 3
     Team projectTeam;
