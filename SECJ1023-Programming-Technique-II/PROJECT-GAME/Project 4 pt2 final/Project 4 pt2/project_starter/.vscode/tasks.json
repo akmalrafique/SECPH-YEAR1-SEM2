@@ -1,0 +1,32 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build Active Game File",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "-g",
+                "${file}", 
+                "${workspaceFolder}\\src\\bugs\\*.cpp",
+                "${workspaceFolder}\\src\\ui\\*.cpp",
+                "${workspaceFolder}\\src\\core\\*.cpp",
+                "${workspaceFolder}\\src\\player\\*.cpp",
+                "-o",
+                "${workspaceFolder}\\project_starter.exe",
+                "-lbgi",
+                "-lgdi32",
+                "-lcomdlg32",
+                "-luuid",
+                "-loleaut32",
+                "-lole32",
+                "-lwinmm"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": "$gcc"
+        }
+    ]
+}
